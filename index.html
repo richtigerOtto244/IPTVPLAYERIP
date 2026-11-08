@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#160d1b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="IPplayerTv">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>IPplayerTv</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark"><span class="screen"></span><span class="stand"></span></div>
+        <div><div class="brand-name">IPplayer<span>Tv</span></div><div class="tagline">DEIN ENTERTAINMENT. DEIN PROGRAMM.</div></div>
+      </div>
+      <button class="icon-btn" id="installHint" aria-label="Installation" title="Zum Home-Bildschirm">＋</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow">PREMIUM PLAYER</div>
+        <h1>Alles auf<br><span>einem Bildschirm.</span></h1>
+        <p>Verbinde deine Playlist und genieße deine eigenen Streams.</p>
+        <div class="hero-glow"></div>
+      </section>
+
+      <section class="panel connection">
+        <div class="section-heading"><div><div class="eyebrow">LOS GEHT'S</div><h2>Playlist verbinden</h2></div><span class="live-dot"></span></div>
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-mode="m3u">M3U / M3U8</button>
+          <button class="tab" data-mode="xtream">Xtream Codes</button>
+        </div>
+        <form id="m3uForm" class="form-stack">
+          <label>Playlist-URL<input id="m3uUrl" type="url" placeholder="https://example.com/playlist.m3u" autocomplete="url"></label>
+          <div class="or-line"><span>oder</span></div>
+          <label class="file-label">M3U-Datei auswählen<input id="m3uFile" type="file" accept=".m3u,.m3u8,.txt,audio/x-mpegurl,application/vnd.apple.mpegurl"></label>
+          <button class="primary-btn" type="submit"><span>Playlist laden</span><b>→</b></button>
+        </form>
+        <form id="xtreamForm" class="form-stack hidden">
+          <label>Serveradresse<input id="xtServer" type="url" placeholder="https://dein-anbieter.example:port" autocomplete="url"></label>
+          <label>Benutzername<input id="xtUser" type="text" placeholder="Benutzername" autocomplete="username"></label>
+          <label>Passwort<input id="xtPass" type="password" placeholder="Passwort" autocomplete="current-password"></label>
+          <button class="primary-btn" type="submit"><span>Verbinden</span><b>→</b></button>
+          <p class="fineprint">Deine Zugangsdaten werden nicht auf einem Server gespeichert. Sie bleiben nur in dieser Browser-Sitzung.</p>
+        </form>
+        <div id="status" class="status" role="status" aria-live="polite">Noch keine Playlist geladen.</div>
+      </section>
+
+      <section id="playerPanel" class="panel player-panel hidden">
+        <div class="section-heading"><div><div class="eyebrow">JETZT LÄUFT</div><h2 id="nowTitle">Wähle einen Sender</h2></div><span class="live-pill">LIVE</span></div>
+        <video id="video" controls playsinline webkit-playsinline preload="metadata"></video>
+        <p class="player-note">Falls ein Stream nicht startet, unterstützt dein Anbieter möglicherweise kein browserbasiertes HLS oder blockiert den Zugriff.</p>
+      </section>
+
+      <section id="channelsPanel" class="channels-section hidden">
+        <div class="section-heading list-heading"><div><div class="eyebrow">DEINE PLAYLIST</div><h2>Live TV</h2></div><span id="channelCount" class="count">0 Sender</span></div>
+        <div class="search-wrap"><span>⌕</span><input id="search" type="search" placeholder="Sender suchen …"></div>
+        <div id="channelList" class="channel-list"></div>
+      </section>
+      <section class="disclaimer">IPplayerTv stellt keine Sender oder Inhalte bereit. Nutze ausschließlich Playlists und Streams, für die du eine Berechtigung hast.</section>
+    </main>
+    <nav class="bottom-nav"><a class="selected" href="#top"><span>⌂</span>Start</a><a href="#channelsPanel"><span>▤</span>Live TV</a><a href="#connection"><span>⚙</span>Playlist</a></nav>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

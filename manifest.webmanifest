@@ -1,0 +1,21 @@
+{
+  "name": "IPplayerTv – Premium IPTV Player",
+  "short_name": "IPplayerTv",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#100b14",
+  "theme_color": "#160d1b",
+  "description": "Dein persönlicher Playlist-Player für autorisierte M3U- und Xtream-Streams.",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
